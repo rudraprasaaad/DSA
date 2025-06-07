@@ -2,22 +2,21 @@
 using namespace std;
 
 int main() {
+    
   vector<int> v = {1, 3, 2, 4};
   vector<int> ans;
-  stack<int> s;
   
+  stack<int> s;
   int n = v.size();
   
-  for(int i = n - 1; i >= 0; i--) {
+  for(int i = 0; i < n; i++) {
     while(!s.empty() && s.top() <= v[i]) s.pop();
-
+    
     if(s.empty()) ans.push_back(-1);
     else ans.push_back(s.top());
-
+    
     s.push(v[i]);
   }
-  
-  reverse(ans.begin(), ans.end());
   
   for(int a : ans) cout << a << " ";
   
